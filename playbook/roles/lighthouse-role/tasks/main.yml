@@ -1,0 +1,47 @@
+---
+# tasks file for lighthouse-role
+- name: Install EPEL Repo
+  become : true
+  ansible.builtin.yum: name=epel-release state=present
+- name: Install NGINX packages
+  become: true
+  ansible.builtin.yum:
+    disable_gpg_check: True
+    name: nginx
+- name: Create NGINX config
+  become: true
+  ansible.builtin.template:
+    src: templates/nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    mode: 0644
+- name: Enable Nginx service
+  become: true
+  ansible.builtin.systemd:
+    name: nginx
+    enabled: true
+  notify: Start Nginx service
+- name: install unzip
+  become: true
+  ansible.builtin.yum:
+    name: unzip
+    state: present
+- name: Creates directory for www
+  become : true
+  file:
+    path: /var/www
+    state: directory
+    mode: 0777
+- name: Download and unzip lighthouse static
+  ansible.builtin.unarchive:
+    src: "{{ lighthouse_src }}"
+    dest: /var/www
+    remote_src: yes
+- name: Create Nginx config lighthouse | Install Nginx
+  become: true
+  template:
+    src: lighthouse.conf.j2
+    dest: /etc/nginx/conf.d/lighthouse.conf
+    mode: 0644
+  notify: Restart Nginx service
+- name: Flush_handlers
+  meta: flush_handlers  

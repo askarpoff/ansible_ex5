@@ -1,0 +1,9 @@
+galaxy_info:
+  author: askarpoff
+  description: Lighthouse installation Centos 7-8
+  company: mnwhl.ru
+
+  license: MIT
+
+  min_ansible_version: 2.11
+
