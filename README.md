@@ -4,7 +4,7 @@
 
 1. Запустите  `molecule test -s centos_7` внутри корневой директории clickhouse-role, посмотрите на вывод команды. Данная команда может отработать с ошибками, это нормально. Наша цель - посмотреть как другие в реальном мире используют молекулу.
 <details>
-  <summary>molecule test -s centos_7</summary>
+<summary>molecule test -s centos_7</summary>  
   
 ```bash 
 debian@debian:~/ansible_ex5/playbook/roles/clickhouse$ molecule test -s centos_7
@@ -218,8 +218,8 @@ INFO     Initializing new scenario default...
 INFO     Initialized scenario in /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/default successfully.
 ```
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть
-<summary>molecule test -s default</summary>
 <details>
+<summary>molecule test -s default</summary>
   ```bash
   debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s default
 [DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
