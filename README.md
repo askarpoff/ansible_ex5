@@ -5,6 +5,7 @@
 1. Запустите  `molecule test -s centos_7` внутри корневой директории clickhouse-role, посмотрите на вывод команды. Данная команда может отработать с ошибками, это нормально. Наша цель - посмотреть как другие в реальном мире используют молекулу.
 <details>
   <summary>molecule test -s centos_7</summary>
+  
 ```bash 
 debian@debian:~/ansible_ex5/playbook/roles/clickhouse$ molecule test -s centos_7
 INFO     centos_7 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
