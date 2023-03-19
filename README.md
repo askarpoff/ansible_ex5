@@ -92,7 +92,8 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0    s
 
 INFO     Pruning extra files from scenario ephemeral directory
 ```
-</details>  
+</details>
+
 2. Перейдите в каталог с ролью vector-role и создайте сценарий тестирования по умолчанию при помощи `molecule init scenario --driver-name docker`.
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
 4. Добавьте несколько assert в verify.yml-файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска и др.). 
