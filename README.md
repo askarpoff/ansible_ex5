@@ -220,8 +220,9 @@ INFO     Initialized scenario in /home/debian/ansible_ex5/playbook/roles/vector-
 3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть
 <details>
 <summary>molecule test -s default</summary>
-  ```bash
-  debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s default
+  
+```bash
+debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s default
 [DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
 controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
 2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
