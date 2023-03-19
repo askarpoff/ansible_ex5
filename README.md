@@ -57,9 +57,6 @@ Options:
                         repeatable.
   -c C                  Specify configuration file to use.  Defaults to
                         ".ansible-lint"
-/bin/bash: line 2: flake8: command not found
-CRITICAL Lint failed with error code 127
-WARNING  An error occurred during the test sequence action: 'lint'. Cleaning up.
 INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
 INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
 INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
@@ -89,6 +86,126 @@ TASK [Delete docker networks(s)] ***********************************************
 
 PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > syntax
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+playbook: /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/resources/playbooks/converge.yml
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > create
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Create Dockerfiles from image names] *************************************
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'diff': [], 'dest': '/home/debian/.cache/molecule/clickhouse/centos_7/Dockerfile_centos_7', 'src': '/home/debian/.ansible/tmp/ansible-tmp-1679244944.0444648-57174-210431815018422/source', 'md5sum': 'e90d08cd34f49a5f8a41a07de1348618', 'checksum': '4b70768619482424811f2977aa277a5acf2b13a1', 'changed': True, 'uid': 1000, 'gid': 1000, 'owner': 'debian', 'group': 'debian', 'mode': '0600', 'state': 'file', 'size': 2199, 'invocation': {'module_args': {'src': '/home/debian/.ansible/tmp/ansible-tmp-1679244944.0444648-57174-210431815018422/source', 'dest': '/home/debian/.cache/molecule/clickhouse/centos_7/Dockerfile_centos_7', 'mode': '0600', 'follow': False, '_original_basename': 'Dockerfile.j2', 'checksum': '4b70768619482424811f2977aa277a5acf2b13a1', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+ok: [localhost] => (item=molecule_local/centos:7)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=centos_7)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '284724598364.57319', 'results_file': '/home/debian/.ansible_async/284724598364.57319', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=7    changed=3    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > converge
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos_7]
+
+TASK [Apply Clickhouse Role] ***************************************************
+ERROR! the role 'ansible-clickhouse' was not found in /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/resources/playbooks/roles:/home/debian/.cache/molecule/clickhouse/centos_7/roles:/home/debian/ansible_ex5/playbook/roles:/home/debian/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/home/debian/ansible_ex5/playbook/roles/clickhouse:/home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/resources/playbooks
+
+The error appears to be in '/home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/resources/playbooks/converge.yml': line 7, column 15, but may
+be elsewhere in the file depending on the exact syntax problem.
+
+The offending line appears to be:
+
+      include_role:
+        name: ansible-clickhouse
+              ^ here
+
+PLAY RECAP *********************************************************************
+centos_7                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+CRITICAL Ansible return code was 2, command was: ['ansible-playbook', '-D', '--inventory', '/home/debian/.cache/molecule/clickhouse/centos_7/inventory', '--skip-tags', 'molecule-notest,notest', '/home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/resources/playbooks/converge.yml']
+WARNING  An error occurred during the test sequence action: 'converge'. Cleaning up.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/clickhouse/molecule/centos_7/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/clickhouse/centos_7/inventory/host_vars
+INFO     Running centos_7 > destroy
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos_7)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=centos_7)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
 INFO     Pruning extra files from scenario ephemeral directory
 ```
