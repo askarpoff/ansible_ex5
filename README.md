@@ -217,8 +217,154 @@ debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule init scenario -
 INFO     Initializing new scenario default...
 INFO     Initialized scenario in /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/default successfully.
 ```
-3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть.
+3. Добавьте несколько разных дистрибутивов (centos:8, ubuntu:latest) для инстансов и протестируйте роль, исправьте найденные ошибки, если они есть
+<summary>molecule test -s default</summary>
+<details>
+  ```bash
+  debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s default
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Set ANSIBLE_LIBRARY=/home/debian/.cache/ansible-compat/8902dd/modules:/home/debian/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+INFO     Set ANSIBLE_COLLECTIONS_PATH=/home/debian/.cache/ansible-compat/8902dd/collections:/home/debian/.ansible/collections:/usr/share/ansible/collections
+INFO     Set ANSIBLE_ROLES_PATH=/home/debian/.cache/ansible-compat/8902dd/roles:/home/debian/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+INFO     Running default > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Running default > lint
+INFO     Lint is disabled.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+INFO     Sanity checks: 'docker'
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
 
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=instance)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Running default > syntax
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+playbook: /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/default/converge.yml
+INFO     Running default > create
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:8', 'name': 'instance', 'pre_build_image': True})
+
+TASK [Create Dockerfiles from image names] *************************************
+skipping: [localhost] => (item={'image': 'docker.io/pycontribs/centos:8', 'name': 'instance', 'pre_build_image': True})
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'changed': False, 'skipped': True, 'skip_reason': 'Conditional result was False', 'item': {'image': 'docker.io/pycontribs/centos:8', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+skipping: [localhost] => (item=molecule_local/docker.io/pycontribs/centos:8)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'image': 'docker.io/pycontribs/centos:8', 'name': 'instance', 'pre_build_image': True})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '44346259124.59445', 'results_file': '/home/debian/.ansible_async/44346259124.59445', 'changed': True, 'failed': False, 'item': {'image': 'docker.io/pycontribs/centos:8', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=5    changed=2    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0
+
+INFO     Running default > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Running default > converge
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [instance]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+changed: [instance]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+skipping: [instance]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+fatal: [instance]: FAILED! => {"changed": false, "msg": "Failed to download metadata for repo 'appstream': Cannot prepare internal mirrorlist: No URLs in mirrorlist", "rc": 1, "results": []}
+
+PLAY RECAP *********************************************************************
+instance                   : ok=2    changed=1    unreachable=0    failed=1    skipped=1    rescued=0    ignored=0
+
+CRITICAL Ansible return code was 2, command was: ['ansible-playbook', '--inventory', '/home/debian/.cache/molecule/vector-role/default/inventory', '--skip-tags', 'molecule-notest,notest', '/home/debian/ansible_ex5/playbook/roles/vector-role/molecule/default/converge.yml']
+WARNING  An error occurred during the test sequence action: 'converge'. Cleaning up.
+INFO     Running default > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Running default > destroy
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=instance)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+```
+</details>
 4. Добавьте несколько assert в verify.yml-файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска и др.). 
 
 5. Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
