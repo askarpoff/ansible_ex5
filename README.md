@@ -2733,7 +2733,7 @@ INFO     Pruning extra files from scenario ephemeral directory
 ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/molecule test -s centos_7_lite --destroy always (exited with code 1)
  ```
 </details>
-  7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
+    7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
   
 <a href='https://github.com/askarpoff/vector-role/releases/tag/1.2.0'>Ссылка на релиз</a>
   
