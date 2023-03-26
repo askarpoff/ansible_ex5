@@ -1,13 +1,42 @@
 ---
 # tasks file for vector-role
-- name: Get vector distrib
+- name: Get Vector distrib | CentOS
   ansible.builtin.get_url:
-    url: "https://packages.timber.io/vector/{{ vector_version}}/vector-{{ vector_version }}-1.x86_64.rpm"
-    dest: "./vector-{{ vector_version }}-1.x86_64.rpm"
-
-- name: Install vector packages
+    url: "https://packages.timber.io/vector/{{ vector_version}}/vector-{{ vector_version}}-1.{{ ansible_architecture }}.rpm"
+    dest: "/tmp/vector-{{ vector_version}}-1.{{ ansible_architecture }}.rpm"
+    mode: 0644
+  when: ansible_facts.distribution == "CentOS"
+- name: Get Vector distrib | Ubuntu
+  ansible.builtin.get_url:
+    url: "https://packages.timber.io/vector/{{ vector_version}}/vector_{{ vector_version}}-1_amd64.deb"
+    dest: "/tmp/vector_{{ vector_version}}-1_amd64.deb"
+    mode: 0644
+  when: ansible_facts.distribution == "Ubuntu"
+- name: Install Vector packages | CentOS
   become: true
   ansible.builtin.yum:
-    disable_gpg_check: True
-    name: vector-{{ vector_version }}-1.x86_64.rpm
-  notify: Start vector service
+    name: /tmp/vector-{{ vector_version}}-1.{{ ansible_architecture }}.rpm
+    disable_gpg_check: true
+    state: present
+  notify: Start Vector service
+  when: ansible_facts.distribution == "CentOS"
+- name: Install Vector packages | Ubuntu
+  become: true
+  ansible.builtin.apt:
+    deb: /tmp/vector_{{ vector_version}}-1_amd64.deb
+  notify: Start Vector service
+  when: ansible_facts.distribution == "Ubuntu"
+- name: Creates directory
+  become: true
+  file:
+    path: /var/lib/vector/local_logs
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+    mode: 0644
+- name: Start Vector service
+  become: true
+  systemd:
+    name: vector
+    state: started
+    daemon_reload: true

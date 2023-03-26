@@ -5,7 +5,7 @@ vector-role
 
 Requirements
 ------------
-Centos 7, Centos 8
+Centos 7, Centos 8, Ubuntu 18.04, Ububntu 20.04
 
 
 Role Variables
