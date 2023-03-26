@@ -2479,6 +2479,67 @@ ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/mol
   </details>
   
 4. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
+ ```
+  molecule matrix test
+INFO     Test matrix
+---
+centos_8:
+  - dependency
+  - lint
+  - cleanup
+  - destroy
+  - syntax
+  - create
+  - prepare
+  - converge
+  - idempotence
+  - side_effect
+  - verify
+  - cleanup
+  - destroy
+compability:
+  - dependency
+  - lint
+  - cleanup
+  - destroy
+  - syntax
+  - create
+  - prepare
+  - converge
+  - idempotence
+  - side_effect
+  - verify
+  - cleanup
+  - destroy
+default:
+  - dependency
+  - lint
+  - cleanup
+  - destroy
+  - syntax
+  - create
+  - prepare
+  - converge
+  - idempotence
+  - side_effect
+  - verify
+  - cleanup
+  - destroy
+ubuntu_latest:
+  - dependency
+  - lint
+  - cleanup
+  - destroy
+  - syntax
+  - create
+  - prepare
+  - converge
+  - idempotence
+  - side_effect
+  - verify
+  - cleanup
+  - destroy
+```
 
 5. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.
 6. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
