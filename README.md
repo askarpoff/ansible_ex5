@@ -1390,7 +1390,297 @@ INFO     Pruning extra files from scenario ephemeral directory
 <summary>molecule test -s centos_8</summary>
   
 ```bash
+debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s centos_8
+INFO     centos_8 scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Set ANSIBLE_LIBRARY=/home/debian/.cache/ansible-compat/8902dd/modules:/home/debian/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+INFO     Set ANSIBLE_COLLECTIONS_PATH=/home/debian/.cache/ansible-compat/8902dd/collections:/home/debian/.ansible/collections:/usr/share/ansible/collections
+INFO     Set ANSIBLE_ROLES_PATH=/home/debian/.cache/ansible-compat/8902dd/roles:/home/debian/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > lint
+COMMAND: yamllint .
+ansible-lint
+flake8
 
+Usage: ansible-lint [options] playbook.yml [playbook2 ...]
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -L                    list all the rules
+  -q                    quieter, although not silent output
+  -p                    parseable output in the format of pep8
+  --parseable-severity  parseable output including severity of rule
+  -r RULESDIR           specify one or more rules directories using one or
+                        more -r arguments. Any -r flags override the default
+                        rules in /usr/lib/python3/dist-
+                        packages/ansiblelint/rules, unless -R is also used.
+  -R                    Use default rules in /usr/lib/python3/dist-
+                        packages/ansiblelint/rules in addition to any extra
+                        rules directories specified with -r. There is no need
+                        to specify this if no -r flags are used
+  -t TAGS               only check rules whose id/tags match these values
+  -T                    list all the tags
+  -v                    Increase verbosity level
+  -x SKIP_LIST          only check rules whose id/tags do not match these
+                        values
+  --nocolor             disable colored output
+  --force-color         Try force colored output (relying on ansible's code)
+  --exclude=EXCLUDE_PATHS
+                        path to directories or files to skip. This option is
+                        repeatable.
+  -c C                  Specify configuration file to use.  Defaults to
+                        ".ansible-lint"
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > destroy
+INFO     Sanity checks: 'docker'
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos_8)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+ok: [localhost] => (item=centos_8)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > syntax
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+playbook: /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/resources/playbooks/converge.yml
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > create
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile_c8.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:8', 'name': 'centos_8', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Create Dockerfiles from image names] *************************************
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile_c8.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:8', 'name': 'centos_8', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'diff': [], 'dest': '/home/debian/.cache/molecule/vector-role/centos_8/Dockerfile_centos_8', 'src': '/home/debian/.ansible/tmp/ansible-tmp-1679831082.3130622-6274-191069527995625/source', 'md5sum': '2767b2df92ab085846edadd7b1e1246e', 'checksum': '7517f82ef33e7277fe4524a4d3ce4ba8e5f26543', 'changed': True, 'uid': 1000, 'gid': 1000, 'owner': 'debian', 'group': 'debian', 'mode': '0600', 'state': 'file', 'size': 2397, 'invocation': {'module_args': {'src': '/home/debian/.ansible/tmp/ansible-tmp-1679831082.3130622-6274-191069527995625/source', 'dest': '/home/debian/.cache/molecule/vector-role/centos_8/Dockerfile_centos_8', 'mode': '0600', 'follow': False, '_original_basename': 'Dockerfile_c8.j2', 'checksum': '7517f82ef33e7277fe4524a4d3ce4ba8e5f26543', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile_c8.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:8', 'name': 'centos_8', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+changed: [localhost] => (item=molecule_local/centos:8)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile_c8.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:8', 'name': 'centos_8', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=centos_8)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '357057013717.7328', 'results_file': '/home/debian/.ansible_async/357057013717.7328', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile_c8.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:8', 'name': 'centos_8', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=7    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > converge
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos_8]
+
+TASK [Apple Vector Role] *******************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+changed: [centos_8]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+skipping: [centos_8]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+changed: [centos_8]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+skipping: [centos_8]
+
+TASK [vector-role : Creates directory] *****************************************
+--- before
++++ after
+@@ -1,7 +1,7 @@
+ {
+-    "group": 0,
+-    "mode": "0755",
+-    "owner": 0,
++    "group": 995,
++    "mode": "0644",
++    "owner": 1000,
+     "path": "/var/lib/vector/local_logs",
+-    "state": "absent"
++    "state": "directory"
+ }
+
+changed: [centos_8]
+
+TASK [vector-role : Start Vector service] **************************************
+changed: [centos_8]
+
+RUNNING HANDLER [vector-role : Start Vector service] ***************************
+ok: [centos_8]
+
+PLAY RECAP *********************************************************************
+centos_8                   : ok=6    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > idempotence
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [centos_8]
+
+TASK [Apple Vector Role] *******************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+ok: [centos_8]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+skipping: [centos_8]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+ok: [centos_8]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+skipping: [centos_8]
+
+TASK [vector-role : Creates directory] *****************************************
+ok: [centos_8]
+
+TASK [vector-role : Start Vector service] **************************************
+ok: [centos_8]
+
+PLAY RECAP *********************************************************************
+centos_8                   : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > side_effect
+WARNING  Skipping, side effect playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > verify
+INFO     Running Ansible Verifier
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Verify] ******************************************************************
+
+TASK [Example assertion] *******************************************************
+ok: [centos_8] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+centos_8                   : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/centos_8/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/centos_8/inventory/host_vars
+INFO     Running centos_8 > destroy
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=centos_8)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=centos_8)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
 ```
 </details>
 <details>
