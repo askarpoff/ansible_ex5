@@ -1687,6 +1687,309 @@ INFO     Pruning extra files from scenario ephemeral directory
 <summary>molecule test -s ubuntu</summary>
   
 ```bash
+debian@debian:~/ansible_ex5/playbook/roles/vector-role/molecule$ molecule test -s ubuntu
+CRITICAL 'molecule/ubuntu/molecule.yml' glob failed.  Exiting.
+debian@debian:~/ansible_ex5/playbook/roles/vector-role/molecule$
+debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s ubuntu
+CRITICAL 'molecule/ubuntu/molecule.yml' glob failed.  Exiting.
+debian@debian:~/ansible_ex5/playbook/roles/vector-role$
+debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s ubuntu_latest
+INFO     ubuntu_latest scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+INFO     Set ANSIBLE_LIBRARY=/home/debian/.cache/ansible-compat/8902dd/modules:/home/debian/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+INFO     Set ANSIBLE_COLLECTIONS_PATH=/home/debian/.cache/ansible-compat/8902dd/collections:/home/debian/.ansible/collections:/usr/share/ansible/collections
+INFO     Set ANSIBLE_ROLES_PATH=/home/debian/.cache/ansible-compat/8902dd/roles:/home/debian/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > lint
+COMMAND: yamllint .
+ansible-lint
+flake8
+
+Usage: ansible-lint [options] playbook.yml [playbook2 ...]
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -L                    list all the rules
+  -q                    quieter, although not silent output
+  -p                    parseable output in the format of pep8
+  --parseable-severity  parseable output including severity of rule
+  -r RULESDIR           specify one or more rules directories using one or
+                        more -r arguments. Any -r flags override the default
+                        rules in /usr/lib/python3/dist-
+                        packages/ansiblelint/rules, unless -R is also used.
+  -R                    Use default rules in /usr/lib/python3/dist-
+                        packages/ansiblelint/rules in addition to any extra
+                        rules directories specified with -r. There is no need
+                        to specify this if no -r flags are used
+  -t TAGS               only check rules whose id/tags match these values
+  -T                    list all the tags
+  -v                    Increase verbosity level
+  -x SKIP_LIST          only check rules whose id/tags do not match these
+                        values
+  --nocolor             disable colored output
+  --force-color         Try force colored output (relying on ansible's code)
+  --exclude=EXCLUDE_PATHS
+                        path to directories or files to skip. This option is
+                        repeatable.
+  -c C                  Specify configuration file to use.  Defaults to
+                        ".ansible-lint"
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > destroy
+INFO     Sanity checks: 'docker'
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=ubuntu_latest)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+ok: [localhost] => (item=ubuntu_latest)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > syntax
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+playbook: /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/resources/playbooks/converge.yml
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > create
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Create] ******************************************************************
+
+TASK [Log into a Docker registry] **********************************************
+skipping: [localhost] => (item=None)
+skipping: [localhost]
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'sudo', 'container': 'docker'}, 'image': 'ubuntu:latest', 'name': 'ubuntu_latest', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Create Dockerfiles from image names] *************************************
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'sudo', 'container': 'docker'}, 'image': 'ubuntu:latest', 'name': 'ubuntu_latest', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Discover local Docker images] ********************************************
+ok: [localhost] => (item={'diff': [], 'dest': '/home/debian/.cache/molecule/vector-role/ubuntu_latest/Dockerfile_ubuntu_latest', 'src': '/home/debian/.ansible/tmp/ansible-tmp-1679832166.0865881-10305-280896454652656/source', 'md5sum': '494f081df668e1c263575fc6845e4a2e', 'checksum': 'f2a55a6b663585869c406d23ec64a6edf4c5a7aa', 'changed': True, 'uid': 1000, 'gid': 1000, 'owner': 'debian', 'group': 'debian', 'mode': '0600', 'state': 'file', 'size': 2199, 'invocation': {'module_args': {'src': '/home/debian/.ansible/tmp/ansible-tmp-1679832166.0865881-10305-280896454652656/source', 'dest': '/home/debian/.cache/molecule/vector-role/ubuntu_latest/Dockerfile_ubuntu_latest', 'mode': '0600', 'follow': False, '_original_basename': 'Dockerfile.j2', 'checksum': 'f2a55a6b663585869c406d23ec64a6edf4c5a7aa', 'backup': False, 'force': True, 'unsafe_writes': False, 'content': None, 'validate': None, 'directory_mode': None, 'remote_src': None, 'local_follow': None, 'owner': None, 'group': None, 'seuser': None, 'serole': None, 'selevel': None, 'setype': None, 'attributes': None}}, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'sudo', 'container': 'docker'}, 'image': 'ubuntu:latest', 'name': 'ubuntu_latest', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item', 'i': 0, 'ansible_index_var': 'i'})
+
+TASK [Build an Ansible compatible image (new)] *********************************
+changed: [localhost] => (item=molecule_local/ubuntu:latest)
+
+TASK [Create docker network(s)] ************************************************
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'sudo', 'container': 'docker'}, 'image': 'ubuntu:latest', 'name': 'ubuntu_latest', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=ubuntu_latest)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '56342474020.14762', 'results_file': '/home/debian/.ansible_async/56342474020.14762', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'ansible', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'sudo', 'container': 'docker'}, 'image': 'ubuntu:latest', 'name': 'ubuntu_latest', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=7    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > prepare
+WARNING  Skipping, prepare playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > converge
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ubuntu_latest]
+
+TASK [Apple Vector Role] *******************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+skipping: [ubuntu_latest]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+changed: [ubuntu_latest]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+skipping: [ubuntu_latest]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+Selecting previously unselected package vector.
+(Reading database ... 9553 files and directories currently installed.)
+Preparing to unpack /tmp/vector_0.27.0-1_amd64.deb ...
+Unpacking vector (0.27.0-1) ...
+Setting up vector (0.27.0-1) ...
+systemd-journal:x:101:
+changed: [ubuntu_latest]
+
+TASK [vector-role : Creates directory] *****************************************
+--- before
++++ after
+@@ -1,7 +1,7 @@
+ {
+-    "group": 0,
+-    "mode": "0755",
+-    "owner": 0,
++    "group": 999,
++    "mode": "0644",
++    "owner": 1000,
+     "path": "/var/lib/vector/local_logs",
+-    "state": "absent"
++    "state": "directory"
+ }
+
+changed: [ubuntu_latest]
+
+TASK [vector-role : Start Vector service] **************************************
+changed: [ubuntu_latest]
+
+RUNNING HANDLER [vector-role : Start Vector service] ***************************
+ok: [ubuntu_latest]
+
+PLAY RECAP *********************************************************************
+ubuntu_latest              : ok=6    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > idempotence
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ubuntu_latest]
+
+TASK [Apple Vector Role] *******************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+skipping: [ubuntu_latest]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+ok: [ubuntu_latest]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+skipping: [ubuntu_latest]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+ok: [ubuntu_latest]
+
+TASK [vector-role : Creates directory] *****************************************
+ok: [ubuntu_latest]
+
+TASK [vector-role : Start Vector service] **************************************
+ok: [ubuntu_latest]
+
+PLAY RECAP *********************************************************************
+ubuntu_latest              : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > side_effect
+WARNING  Skipping, side effect playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > verify
+INFO     Running Ansible Verifier
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Verify] ******************************************************************
+
+TASK [Example assertion] *******************************************************
+ok: [ubuntu_latest] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+ubuntu_latest              : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/hosts.yml linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/hosts
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/group_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/group_vars
+INFO     Inventory /home/debian/ansible_ex5/playbook/roles/vector-role/molecule/ubuntu_latest/../resources/inventory/host_vars/ linked to /home/debian/.cache/molecule/vector-role/ubuntu_latest/inventory/host_vars
+INFO     Running ubuntu_latest > destroy
+[DEPRECATION WARNING]: Ansible will require Python 3.8 or newer on the
+controller starting with Ansible 2.12. Current version: 3.7.3 (default, Oct 31
+2022, 14:04:00) [GCC 8.3.0]. This feature will be removed from ansible-core in
+version 2.12. Deprecation warnings can be disabled by setting
+deprecation_warnings=False in ansible.cfg.
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item=ubuntu_latest)
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item=ubuntu_latest)
+
+TASK [Delete docker networks(s)] ***********************************************
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
 
 ```
 </details>
