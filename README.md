@@ -2321,7 +2321,162 @@ INFO     Pruning extra files from scenario ephemeral directory
 2. Запустите `docker run --privileged=True -v <path_to_repo>:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash`, где path_to_repo — путь до корня репозитория с vector-role на вашей файловой системе.
 3. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
 ![image](https://user-images.githubusercontent.com/108946489/227779016-93102a81-b492-41a4-8191-a9e75375f5d0.png)
+
+Сделал свой compability сценарий, т.к. такого не было, c драйвером podman
+<details>
+  <summary>Вывод сценария</summary>
+```bash
+[root@34c6baac1e82 vector-role]#
+tox
+py37-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.1.0,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,rich==13.3.2,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.5.0,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible210 run-test-pre: PYTHONHASHSEED='547073935'
+py37-ansible210 run-test: commands[0] | molecule test -s compability --destroy always
+INFO     compability scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
+INFO     Performing prerun...
+WARNING  Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
+INFO     Guessed /opt/vector-role as project root directory
+WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Using /root/.cache/ansible-lint/b984a4/roles/askarpoff.vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/root/.cache/ansible-lint/b984a4/roles
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
+INFO     Running compability > dependency
+WARNING  Skipping, missing the requirements file.
+WARNING  Skipping, missing the requirements file.
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
+INFO     Running compability > lint
+COMMAND: yamllint .
+ansible-lint
+flake8
+
+./.tox/py37-ansible210/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/.gitlab-ci.yml
+  34:10     error    too many spaces after hyphen  (hyphens)
+  35:10     error    too many spaces after hyphen  (hyphens)
+  36:10     error    too many spaces after hyphen  (hyphens)
+  37:10     error    too many spaces after hyphen  (hyphens)
+  38:10     error    too many spaces after hyphen  (hyphens)
+  39:10     error    too many spaces after hyphen  (hyphens)
+
+./.tox/py37-ansible210/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/playbooks/test_remove_resources.yml
+  206:1     error    too many blank lines (2 > 0)  (empty-lines)
+
+./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/scenario/verifier/ansible/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/verify.yml
+  4:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/create.yml
+  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/destroy.yml
+  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/molecule/{{cookiecutter.role_name}}/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/molecule.yml
+  8:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/scenario/verifier/ansible/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/verify.yml
+  4:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/create.yml
+  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/destroy.yml
+  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/molecule/{{cookiecutter.role_name}}/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/molecule.yml
+  8:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/.gitlab-ci.yml
+  34:10     error    too many spaces after hyphen  (hyphens)
+  35:10     error    too many spaces after hyphen  (hyphens)
+  36:10     error    too many spaces after hyphen  (hyphens)
+  37:10     error    too many spaces after hyphen  (hyphens)
+  38:10     error    too many spaces after hyphen  (hyphens)
+  39:10     error    too many spaces after hyphen  (hyphens)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/playbooks/test_remove_resources.yml
+  206:1     error    too many blank lines (2 > 0)  (empty-lines)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/community/sops/tests/integration/targets/lookup_sops/files/hidden-binary.yaml
+  2:1       error    syntax error: found character '\t' that cannot start any token (syntax)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/community/sops/tests/integration/targets/lookup_sops/files/hidden-json.yaml
+  2:1       error    syntax error: found character '\t' that cannot start any token (syntax)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/scenario/verifier/ansible/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/verify.yml
+  4:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/create.yml
+  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/destroy.yml
+  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/molecule/{{cookiecutter.role_name}}/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/molecule.yml
+  8:2       error    syntax error: found character '%' that cannot start any token (syntax)
+
+Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
+WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py37-ansible210/bin/ansible-lint", line 8, in <module>
+    sys.exit(_run_cli_entrypoint())
+  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/__main__.py", line 299, in _run_cli_entrypoint
+    sys.exit(main(sys.argv))
+  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/__main__.py", line 211, in main
+    from ansiblelint.generate_docs import rules_as_rich, rules_as_rst, rules_as_str
+  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/generate_docs.py", line 6, in <module>
+    from rich.console import render_group
+ImportError: cannot import name 'render_group' from 'rich.console' (/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/rich/console.py)
+/bin/sh: line 2: flake8: command not found
+CRITICAL Lint failed with error code 127
+WARNING  An error occurred during the test sequence action: 'lint'. Cleaning up.
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
+INFO     Running compability > cleanup
+WARNING  Skipping, cleanup playbook not configured.
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
+INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
+INFO     Running compability > destroy
+INFO     Sanity checks: 'podman'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'root', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'pre_build_image': True, 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '601403665813.450', 'results_file': '/root/.ansible_async/601403665813.450', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'root', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'pre_build_image': True, 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/molecule test -s compability --destroy always (exited with code 1)
+```
+  </details>
 4. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
+
 5. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.
 6. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
 7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
