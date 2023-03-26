@@ -2015,8 +2015,8 @@ INFO     Pruning extra files from scenario ephemeral directory
       that: "'{{ vector_validate.rc }}' == '0'"
 ```
 5. Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
-6. <details>
 <summary>molecule test -s default</summary>
+<details>
 ```bash
 debian@debian:~/ansible_ex5/playbook/roles/vector-role$ molecule test -s default
 INFO     default scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
