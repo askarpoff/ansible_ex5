@@ -2739,4 +2739,3 @@ ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/mol
 <a href='https://github.com/askarpoff/vector-role/releases/tag/1.2.0'>Ссылка на релиз</a>
   
   
-После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. В качестве решения пришлите ссылку на  ваш репозиторий и скриншоты этапов выполнения задания.
