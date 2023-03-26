@@ -1385,6 +1385,7 @@ localhost                  : ok=2    changed=2    unreachable=0    failed=0    s
 
 INFO     Pruning extra files from scenario ephemeral directory
 ```
+</details>
 <details>
 <summary>molecule test -s centos_8</summary>
   
@@ -1392,7 +1393,14 @@ INFO     Pruning extra files from scenario ephemeral directory
 
 ```
 </details>
+<details>
+<summary>molecule test -s ubuntu</summary>
+  
+```bash
+
+```
 </details>
+
 4. Добавьте несколько assert в verify.yml-файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска и др.). 
 
 5. Запустите тестирование роли повторно и проверьте, что оно прошло успешно.
