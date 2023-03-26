@@ -2313,7 +2313,7 @@ INFO     Pruning extra files from scenario ephemeral directory
 </details>
 
 6. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
-
+<a href='https://github.com/askarpoff/vector-role/releases/tag/1.1.0'> Ссылка на релиз</a>
 ### Tox
 
 1. Добавьте в директорию с vector-role файлы из [директории](./example).
