@@ -1989,6 +1989,7 @@ INFO     Pruning extra files from scenario ephemeral directory
 </details>
 
 4. Добавьте несколько assert в verify.yml-файл для  проверки работоспособности vector-role (проверка, что конфиг валидный, проверка успешности запуска и др.). 
+
 Добавил проверку наличия валидности конфига и проверку версии vector.
 ```ansible
 ---
