@@ -2873,7 +2873,7 @@ ERROR:   py39-ansible30: commands failed
   7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
  
 После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. 
-
+## Ответ:
   <a href='https://github.com/askarpoff/vector-role/blob/main/tox.ini'>tox.ini</a>
   
   <a href='https://github.com/askarpoff/vector-role/tree/1.2.0'>https://github.com/askarpoff/vector-role/tree/1.2.0</a>
