@@ -2875,6 +2875,8 @@ ERROR:   py39-ansible30: commands failed
 После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. 
 
   <a href='https://github.com/askarpoff/vector-role/blob/main/tox.ini'>tox.ini</a>
+  
   <a href='https://github.com/askarpoff/vector-role/tree/1.2.0'>https://github.com/askarpoff/vector-role/tree/1.2.0</a>
+  
   <a href='https://github.com/askarpoff/vector-role/tree/1.3.0'>https://github.com/askarpoff/vector-role/tree/1.3.0</a>
   
