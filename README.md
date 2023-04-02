@@ -2329,7 +2329,7 @@ INFO     Pruning extra files from scenario ephemeral directory
  ```
 6. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
   
-<b>UPD.</b> Сделал `yum update` в конгтейнере, а также поставил свои зависимости `pip3 install -r requirements`. Стало выполяться.
+<b>UPD.</b> Сделал `yum update` в контейнере, а также поставил свои зависимости `pip3 install -r requirements`. Стало выполняться.
   
  <details>
    <summary>  py37-ansible210: commands succeeded
@@ -2871,7 +2871,8 @@ ERROR:   py39-ansible30: commands failed
 </details>
     
   7. Добавьте новый тег на коммит с рабочим сценарием в соответствии с семантическим версионированием.
-  
+ 
+После выполнения у вас должно получится два сценария molecule и один tox.ini файл в репозитории. Не забудьте указать в ответе теги решений Tox и Molecule заданий. 
 <a href='https://github.com/askarpoff/vector-role/releases/tag/1.2.0'>Ссылка на релиз</a>
   
   
