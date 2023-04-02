@@ -2321,276 +2321,25 @@ INFO     Pruning extra files from scenario ephemeral directory
 2. Запустите `docker run --privileged=True -v <path_to_repo>:/opt/vector-role -w /opt/vector-role -it aragast/netology:latest /bin/bash`, где path_to_repo — путь до корня репозитория с vector-role на вашей файловой системе.
 3. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
 ![image](https://user-images.githubusercontent.com/108946489/227779016-93102a81-b492-41a4-8191-a9e75375f5d0.png)
-
-Сделал свой compability сценарий, т.к. такого не было, c драйвером podman
-
-<details>
-  <summary>Вывод сценария</summary>
-
-  ```bash
-[root@34c6baac1e82 vector-role]#
-tox
-py37-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.1.0,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,rich==13.3.2,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.5.0,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
-py37-ansible210 run-test-pre: PYTHONHASHSEED='547073935'
-py37-ansible210 run-test: commands[0] | molecule test -s compability --destroy always
-INFO     compability scenario test matrix: dependency, lint, cleanup, destroy, syntax, create, prepare, converge, idempotence, side_effect, verify, cleanup, destroy
-INFO     Performing prerun...
-WARNING  Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
-INFO     Guessed /opt/vector-role as project root directory
-WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
-Please edit meta/main.yml and assure we can correctly determine full role name:
-
-galaxy_info:
-role_name: my_name  # if absent directory name hosting role is used instead
-namespace: my_galaxy_namespace  # if absent, author is used instead
-
-Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
-Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
-
-As an alternative, you can add 'role-name' to either skip_list or warn_list.
-
-INFO     Using /root/.cache/ansible-lint/b984a4/roles/askarpoff.vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
-INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/root/.cache/ansible-lint/b984a4/roles
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
-INFO     Running compability > dependency
-WARNING  Skipping, missing the requirements file.
-WARNING  Skipping, missing the requirements file.
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
-INFO     Running compability > lint
-COMMAND: yamllint .
-ansible-lint
-flake8
-
-./.tox/py37-ansible210/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/.gitlab-ci.yml
-  34:10     error    too many spaces after hyphen  (hyphens)
-  35:10     error    too many spaces after hyphen  (hyphens)
-  36:10     error    too many spaces after hyphen  (hyphens)
-  37:10     error    too many spaces after hyphen  (hyphens)
-  38:10     error    too many spaces after hyphen  (hyphens)
-  39:10     error    too many spaces after hyphen  (hyphens)
-
-./.tox/py37-ansible210/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/playbooks/test_remove_resources.yml
-  206:1     error    too many blank lines (2 > 0)  (empty-lines)
-
-./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/scenario/verifier/ansible/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/verify.yml
-  4:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/create.yml
-  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/destroy.yml
-  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible210/lib/python3.7/site-packages/molecule/cookiecutter/molecule/{{cookiecutter.role_name}}/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/molecule.yml
-  8:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/scenario/verifier/ansible/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/verify.yml
-  4:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/create.yml
-  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/destroy.yml
-  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37/lib/python3.7/site-packages/molecule/cookiecutter/molecule/{{cookiecutter.role_name}}/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/molecule.yml
-  8:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/.gitlab-ci.yml
-  34:10     error    too many spaces after hyphen  (hyphens)
-  35:10     error    too many spaces after hyphen  (hyphens)
-  36:10     error    too many spaces after hyphen  (hyphens)
-  37:10     error    too many spaces after hyphen  (hyphens)
-  38:10     error    too many spaces after hyphen  (hyphens)
-  39:10     error    too many spaces after hyphen  (hyphens)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/infinidat/infinibox/playbooks/test_remove_resources.yml
-  206:1     error    too many blank lines (2 > 0)  (empty-lines)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/community/sops/tests/integration/targets/lookup_sops/files/hidden-binary.yaml
-  2:1       error    syntax error: found character '\t' that cannot start any token (syntax)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/ansible_collections/community/sops/tests/integration/targets/lookup_sops/files/hidden-json.yaml
-  2:1       error    syntax error: found character '\t' that cannot start any token (syntax)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/scenario/verifier/ansible/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/verify.yml
-  4:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/create.yml
-  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/scenario/driver/delegated/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/destroy.yml
-  2:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-./.tox/py37-ansible30/lib/python3.7/site-packages/molecule/cookiecutter/molecule/{{cookiecutter.role_name}}/{{cookiecutter.molecule_directory}}/{{cookiecutter.scenario_name}}/molecule.yml
-  8:2       error    syntax error: found character '%' that cannot start any token (syntax)
-
-Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
-WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
-Please edit meta/main.yml and assure we can correctly determine full role name:
-
-galaxy_info:
-role_name: my_name  # if absent directory name hosting role is used instead
-namespace: my_galaxy_namespace  # if absent, author is used instead
-
-Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
-Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
-
-As an alternative, you can add 'role-name' to either skip_list or warn_list.
-
-Traceback (most recent call last):
-  File "/opt/vector-role/.tox/py37-ansible210/bin/ansible-lint", line 8, in <module>
-    sys.exit(_run_cli_entrypoint())
-  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/__main__.py", line 299, in _run_cli_entrypoint
-    sys.exit(main(sys.argv))
-  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/__main__.py", line 211, in main
-    from ansiblelint.generate_docs import rules_as_rich, rules_as_rst, rules_as_str
-  File "/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/ansiblelint/generate_docs.py", line 6, in <module>
-    from rich.console import render_group
-ImportError: cannot import name 'render_group' from 'rich.console' (/opt/vector-role/.tox/py37-ansible210/lib/python3.7/site-packages/rich/console.py)
-/bin/sh: line 2: flake8: command not found
-CRITICAL Lint failed with error code 127
-WARNING  An error occurred during the test sequence action: 'lint'. Cleaning up.
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
-INFO     Running compability > cleanup
-WARNING  Skipping, cleanup playbook not configured.
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/hosts.yml linked to /root/.cache/molecule/vector-role/compability/inventory/hosts
-INFO     Inventory /opt/vector-role/molecule/compability/../resources/inventory/group_vars/ linked to /root/.cache/molecule/vector-role/compability/inventory/group_vars
-INFO     Running compability > destroy
-INFO     Sanity checks: 'podman'
-
-PLAY [Destroy] *****************************************************************
-
-TASK [Destroy molecule instance(s)] ********************************************
-changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'root', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'pre_build_image': True, 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
-
-TASK [Wait for instance(s) deletion to complete] *******************************
-changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '601403665813.450', 'results_file': '/root/.ansible_async/601403665813.450', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'dockerfile': '../resources/Dockerfile.j2', 'env': {'ANSIBLE_USER': 'root', 'DEPLOY_GROUP': 'deployer', 'SUDO_GROUP': 'wheel', 'container': 'docker'}, 'image': 'centos:7', 'name': 'centos_7', 'pre_build_image': True, 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
-
-PLAY RECAP *********************************************************************
-localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
-INFO     Pruning extra files from scenario ephemeral directory
-ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/molecule test -s compability --destroy always (exited with code 1)
-```
-  </details>
-  
 4. Создайте облегчённый сценарий для `molecule` с драйвером `molecule_podman`. Проверьте его на исполнимость.
- ```
-  molecule matrix test
-INFO     Test matrix
----
-centos_8:
-  - dependency
-  - lint
-  - cleanup
-  - destroy
-  - syntax
-  - create
-  - prepare
-  - converge
-  - idempotence
-  - side_effect
-  - verify
-  - cleanup
-  - destroy
-compability:
-  - dependency
-  - lint
-  - cleanup
-  - destroy
-  - syntax
-  - create
-  - prepare
-  - converge
-  - idempotence
-  - side_effect
-  - verify
-  - cleanup
-  - destroy
-default:
-  - dependency
-  - lint
-  - cleanup
-  - destroy
-  - syntax
-  - create
-  - prepare
-  - converge
-  - idempotence
-  - side_effect
-  - verify
-  - cleanup
-  - destroy
-ubuntu_latest:
-  - dependency
-  - lint
-  - cleanup
-  - destroy
-  - syntax
-  - create
-  - prepare
-  - converge
-  - idempotence
-  - side_effect
-  - verify
-  - cleanup
-  - destroy
-```
-Облегченный сценарий
-```ansible
----
-dependency:
-  name: galaxy
-driver:
-  name: podman
-platforms:
-  - name: instance
-    image: centos:7
-    pre_build_image: true
-    command: /usr/sbin/init
-    privileged: true
-    capabilities:
-      - SYS_ADMIN
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup
-provisioner:
-  name: ansible
-verifier:
-  name: ansible
-scenario:
-  test_sequence:
-    - destroy
-    - create
-    - converge
-    - idempotence
-    - verify
-    - destroy
-```
-
 5. Пропишите правильную команду в `tox.ini`, чтобы запускался облегчённый сценарий.
-
   ```
   commands =
     {posargs:molecule test -s centos_7_lite --destroy always}
  ```
 6. Запустите команду `tox`. Убедитесь, что всё отработало успешно.
   
-  Вот с этим проблема. Но уже тошнит от этого tox'a
+<b>UPD.</b> Сделал `yum update` в конгтейнере, а также поставил свои зависимости `pip3 install -r requirements`. Стало выполяться.
   
  <details>
-   <summary>Неудовлетворительный результат</summary
+   <summary>  py37-ansible210: commands succeeded
+  py37-ansible30: commands succeeded
+</summary
  
 ```bash
-  tox
-py37-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.1.0,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,rich==13.3.2,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.5.0,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
-py37-ansible210 run-test-pre: PYTHONHASHSEED='3417124078'
+[root@f48619fd3e72 vector-role]# tox
+py37-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.1.0,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,rich==13.3.3,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.5.0,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible210 run-test-pre: PYTHONHASHSEED='2496417852'
 py37-ansible210 run-test: commands[0] | molecule test -s centos_7_lite --destroy always
 INFO     centos_7_lite scenario test matrix: destroy, create, converge, idempotence, verify, destroy
 INFO     Performing prerun...
@@ -2616,10 +2365,10 @@ INFO     Sanity checks: 'podman'
 PLAY [Destroy] *****************************************************************
 
 TASK [Destroy molecule instance(s)] ********************************************
-changed: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True})
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
 
 TASK [Wait for instance(s) deletion to complete] *******************************
-changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '528302956015.4279', 'results_file': '/root/.ansible_async/528302956015.4279', 'changed': True, 'failed': False, 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '302665611462.2481', 'results_file': '/root/.ansible_async/302665611462.2481', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
 
 PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
@@ -2641,16 +2390,16 @@ TASK [Check presence of custom Dockerfiles] ************************************
 ok: [localhost] => (item=Dockerfile: None specified)
 
 TASK [Create Dockerfiles from image names] *************************************
-skipping: [localhost] => (item="Dockerfile: None specified; Image: docker.io/pycontribs/centos:7")
+changed: [localhost] => (item="Dockerfile: None specified; Image: centos:7")
 
 TASK [Discover local Podman images] ********************************************
 ok: [localhost] => (item=instance)
 
 TASK [Build an Ansible compatible image] ***************************************
-skipping: [localhost] => (item=docker.io/pycontribs/centos:7)
+changed: [localhost] => (item=centos:7)
 
 TASK [Determine the CMD directives] ********************************************
-ok: [localhost] => (item="instance command: None specified")
+ok: [localhost] => (item="instance command: /usr/sbin/init")
 
 TASK [Remove possible pre-existing containers] *********************************
 changed: [localhost]
@@ -2665,15 +2414,10 @@ TASK [Create molecule instance(s)] *********************************************
 changed: [localhost] => (item=instance)
 
 TASK [Wait for instance(s) creation to complete] *******************************
-FAILED - RETRYING: Wait for instance(s) creation to complete (300 retries left).
-FAILED - RETRYING: Wait for instance(s) creation to complete (299 retries left).
-FAILED - RETRYING: Wait for instance(s) creation to complete (298 retries left).
-FAILED - RETRYING: Wait for instance(s) creation to complete (297 retries left).
-FAILED - RETRYING: Wait for instance(s) creation to complete (296 retries left).
 changed: [localhost] => (item=instance)
 
 PLAY RECAP *********************************************************************
-localhost                  : ok=8    changed=3    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0
+localhost                  : ok=10   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
 
 INFO     Running centos_7_lite > converge
 
@@ -2703,34 +2447,426 @@ does not change.
 changed: [instance]
 
 TASK [vector-role : Start Vector service] **************************************
-fatal: [instance]: FAILED! => {"changed": false, "msg": "failure 1 during daemon-reload: Failed to get D-Bus connection: Operation not permitted\n"}
+changed: [instance]
 
 RUNNING HANDLER [vector-role : Start Vector service] ***************************
+ok: [instance]
 
 PLAY RECAP *********************************************************************
-instance                   : ok=4    changed=3    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0
+instance                   : ok=6    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
 
-CRITICAL Ansible return code was 2, command was: ['ansible-playbook', '--inventory', '/root/.cache/molecule/vector-role/centos_7_lite/inventory', '--skip-tags', 'molecule-notest,notest', '/opt/vector-role/molecule/centos_7_lite/converge.yml']
-WARNING  An error occurred during the test sequence action: 'converge'. Cleaning up.
-INFO     Running centos_7_lite > cleanup
-WARNING  Skipping, cleanup playbook not configured.
+INFO     Running centos_7_lite > idempotence
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [instance]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+ok: [instance]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+skipping: [instance]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+ok: [instance]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+skipping: [instance]
+
+TASK [vector-role : Creates directory] *****************************************
+[WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If
+this does not look like what you expect, quote the entire value to ensure it
+does not change.
+ok: [instance]
+
+TASK [vector-role : Start Vector service] **************************************
+ok: [instance]
+
+PLAY RECAP *********************************************************************
+instance                   : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Running centos_7_lite > verify
+INFO     Running Ansible Verifier
+
+PLAY [Verify] ******************************************************************
+
+TASK [Get Vector version] ******************************************************
+ok: [instance]
+
+TASK [Assert Vector instalation] ***********************************************
+ok: [instance] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Validation Vector configuration] *****************************************
+ok: [instance]
+
+TASK [Assert Vector validate config] *******************************************
+ok: [instance] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+instance                   : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
 INFO     Running centos_7_lite > destroy
 
 PLAY [Destroy] *****************************************************************
 
 TASK [Destroy molecule instance(s)] ********************************************
-changed: [localhost] => (item={'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True})
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
 
 TASK [Wait for instance(s) deletion to complete] *******************************
 FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
-FAILED - RETRYING: Wait for instance(s) deletion to complete (299 retries left).
-changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '646330557214.5501', 'results_file': '/root/.ansible_async/646330557214.5501', 'changed': True, 'failed': False, 'item': {'image': 'docker.io/pycontribs/centos:7', 'name': 'instance', 'pre_build_image': True}, 'ansible_loop_var': 'item'})
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '831792406562.5531', 'results_file': '/root/.ansible_async/831792406562.5531', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
 
 PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 
 INFO     Pruning extra files from scenario ephemeral directory
-ERROR: InvocationError for command /opt/vector-role/.tox/py37-ansible210/bin/molecule test -s centos_7_lite --destroy always (exited with code 1)
+py37-ansible30 installed: ansible==3.0.0,ansible-base==2.10.17,ansible-compat==1.0.0,ansible-lint==5.1.3,arrow==1.2.3,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,cached-property==1.5.2,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,importlib-metadata==6.1.0,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,rich==13.3.3,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.2.1,six==1.16.0,subprocess-tee==0.3.5,tenacity==8.2.2,text-unidecode==1.3,typing_extensions==4.5.0,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3,zipp==3.15.0
+py37-ansible30 run-test-pre: PYTHONHASHSEED='2496417852'
+py37-ansible30 run-test: commands[0] | molecule test -s centos_7_lite --destroy always
+INFO     centos_7_lite scenario test matrix: destroy, create, converge, idempotence, verify, destroy
+INFO     Performing prerun...
+WARNING  Failed to locate command: [Errno 2] No such file or directory: 'git': 'git'
+INFO     Guessed /opt/vector-role as project root directory
+WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Using /root/.cache/ansible-lint/b984a4/roles/askarpoff.vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/root/.cache/ansible-lint/b984a4/roles
+INFO     Running centos_7_lite > destroy
+INFO     Sanity checks: 'podman'
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '789341229906.5662', 'results_file': '/root/.ansible_async/789341229906.5662', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Running centos_7_lite > create
+
+PLAY [Create] ******************************************************************
+
+TASK [get podman executable path] **********************************************
+ok: [localhost]
+
+TASK [save path to executable as fact] *****************************************
+ok: [localhost]
+
+TASK [Log into a container registry] *******************************************
+skipping: [localhost] => (item="instance registry username: None specified")
+
+TASK [Check presence of custom Dockerfiles] ************************************
+ok: [localhost] => (item=Dockerfile: None specified)
+
+TASK [Create Dockerfiles from image names] *************************************
+changed: [localhost] => (item="Dockerfile: None specified; Image: centos:7")
+
+TASK [Discover local Podman images] ********************************************
+ok: [localhost] => (item=instance)
+
+TASK [Build an Ansible compatible image] ***************************************
+changed: [localhost] => (item=centos:7)
+
+TASK [Determine the CMD directives] ********************************************
+ok: [localhost] => (item="instance command: /usr/sbin/init")
+
+TASK [Remove possible pre-existing containers] *********************************
+changed: [localhost]
+
+TASK [Discover local podman networks] ******************************************
+skipping: [localhost] => (item=instance: None specified)
+
+TASK [Create podman network dedicated to this scenario] ************************
+skipping: [localhost]
+
+TASK [Create molecule instance(s)] *********************************************
+changed: [localhost] => (item=instance)
+
+TASK [Wait for instance(s) creation to complete] *******************************
+changed: [localhost] => (item=instance)
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=10   changed=5    unreachable=0    failed=0    skipped=3    rescued=0    ignored=0
+
+INFO     Running centos_7_lite > converge
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [instance]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+changed: [instance]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+skipping: [instance]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+changed: [instance]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+skipping: [instance]
+
+TASK [vector-role : Creates directory] *****************************************
+[WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If
+this does not look like what you expect, quote the entire value to ensure it
+does not change.
+changed: [instance]
+
+TASK [vector-role : Start Vector service] **************************************
+changed: [instance]
+
+RUNNING HANDLER [vector-role : Start Vector service] ***************************
+ok: [instance]
+
+PLAY RECAP *********************************************************************
+instance                   : ok=6    changed=4    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Running centos_7_lite > idempotence
+
+PLAY [Converge] ****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [instance]
+
+TASK [Include vector-role] *****************************************************
+
+TASK [vector-role : Get Vector distrib | CentOS] *******************************
+ok: [instance]
+
+TASK [vector-role : Get Vector distrib | Ubuntu] *******************************
+skipping: [instance]
+
+TASK [vector-role : Install Vector packages | CentOS] **************************
+ok: [instance]
+
+TASK [vector-role : Install Vector packages | Ubuntu] **************************
+skipping: [instance]
+
+TASK [vector-role : Creates directory] *****************************************
+[WARNING]: The value "0" (type int) was converted to "u'0'" (type string). If
+this does not look like what you expect, quote the entire value to ensure it
+does not change.
+ok: [instance]
+
+TASK [vector-role : Start Vector service] **************************************
+ok: [instance]
+
+PLAY RECAP *********************************************************************
+instance                   : ok=5    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+
+INFO     Idempotence completed successfully.
+INFO     Running centos_7_lite > verify
+INFO     Running Ansible Verifier
+
+PLAY [Verify] ******************************************************************
+
+TASK [Get Vector version] ******************************************************
+ok: [instance]
+
+TASK [Assert Vector instalation] ***********************************************
+ok: [instance] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+TASK [Validation Vector configuration] *****************************************
+ok: [instance]
+
+TASK [Assert Vector validate config] *******************************************
+ok: [instance] => {
+    "changed": false,
+    "msg": "All assertions passed"
+}
+
+PLAY RECAP *********************************************************************
+instance                   : ok=4    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Verifier completed successfully.
+INFO     Running centos_7_lite > destroy
+
+PLAY [Destroy] *****************************************************************
+
+TASK [Destroy molecule instance(s)] ********************************************
+changed: [localhost] => (item={'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']})
+
+TASK [Wait for instance(s) deletion to complete] *******************************
+FAILED - RETRYING: Wait for instance(s) deletion to complete (300 retries left).
+changed: [localhost] => (item={'started': 1, 'finished': 0, 'ansible_job_id': '282874319132.8331', 'results_file': '/root/.ansible_async/282874319132.8331', 'changed': True, 'failed': False, 'item': {'capabilities': ['SYS_ADMIN'], 'command': '/usr/sbin/init', 'image': 'centos:7', 'name': 'instance', 'privileged': True, 'tmpfs': ['/run', '/tmp'], 'volumes': ['/sys/fs/cgroup:/sys/fs/cgroup']}, 'ansible_loop_var': 'item'})
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+
+INFO     Pruning extra files from scenario ephemeral directory
+py39-ansible210 installed: ansible==2.10.7,ansible-base==2.10.17,ansible-compat==3.0.1,ansible-core==2.14.4,ansible-lint==5.1.3,arrow==1.2.3,attrs==22.2.0,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,jsonschema==4.17.3,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,pyrsistent==0.19.3,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,resolvelib==0.8.1,rich==13.3.3,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.3.0,six==1.16.0,subprocess-tee==0.4.1,tenacity==8.2.2,text-unidecode==1.3,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3
+py39-ansible210 run-test-pre: PYTHONHASHSEED='2496417852'
+py39-ansible210 run-test: commands[0] | molecule test -s centos_7_lite --destroy always
+INFO     centos_7_lite scenario test matrix: destroy, create, converge, idempotence, verify, destroy
+INFO     Performing prerun...
+WARNING  Failed to locate command: [Errno 2] No such file or directory: 'git'
+INFO     Guessed /opt/vector-role as project root directory
+WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Using /root/.cache/ansible-lint/b984a4/roles/askarpoff.vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/root/.cache/ansible-lint/b984a4/roles
+INFO     Running centos_7_lite > destroy
+INFO     Sanity checks: 'podman'
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible210/bin/molecule", line 8, in <module>
+    sys.exit(main())
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/test.py", line 159, in test
+    base.execute_cmdline_scenarios(scenario_name, args, command_args, ansible_args)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 119, in execute_cmdline_scenarios
+    execute_scenario(scenario)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 161, in execute_scenario
+    execute_subcommand(scenario.config, action)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/base.py", line 150, in execute_subcommand
+    return command(config).execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/logger.py", line 187, in wrapper
+    rt = func(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/command/destroy.py", line 107, in execute
+    self._config.provisioner.destroy()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/provisioner/ansible.py", line 705, in destroy
+    pb.execute()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule/provisioner/ansible_playbook.py", line 106, in execute
+    self._config.driver.sanity_checks()
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/molecule_podman/driver.py", line 212, in sanity_checks
+    if runtime.version < Version("2.10.0") and runtime.config.ansible_pipelining:
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible_compat/runtime.py", line 208, in version
+    self._version = parse_ansible_version(proc.stdout)
+  File "/opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible_compat/config.py", line 39, in parse_ansible_version
+    raise InvalidPrerequisiteError(
+ansible_compat.errors.InvalidPrerequisiteError: Unable to parse ansible cli version: ansible 2.10.17
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /opt/vector-role/.tox/py39-ansible210/lib/python3.9/site-packages/ansible
+  executable location = /opt/vector-role/.tox/py39-ansible210/bin/ansible
+  python version = 3.9.2 (default, Jun 13 2022, 19:42:33) [GCC 8.5.0 20210514 (Red Hat 8.5.0-10)]
+
+Keep in mind that only 2.12 or newer are supported.
+ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible210/bin/molecule test -s centos_7_lite --destroy always (exited with code 1)
+py39-ansible30 installed: ansible==3.0.0,ansible-base==2.10.17,ansible-compat==3.0.1,ansible-core==2.14.4,ansible-lint==5.1.3,arrow==1.2.3,attrs==22.2.0,bcrypt==4.0.1,binaryornot==0.4.4,bracex==2.3.post1,Cerberus==1.3.2,certifi==2022.12.7,cffi==1.15.1,chardet==5.1.0,charset-normalizer==3.1.0,click==8.1.3,click-help-colors==0.9.1,cookiecutter==2.1.1,cryptography==40.0.1,distro==1.8.0,enrich==1.2.7,idna==3.4,Jinja2==3.1.2,jinja2-time==0.2.0,jmespath==1.0.1,jsonschema==4.17.3,lxml==4.9.2,markdown-it-py==2.2.0,MarkupSafe==2.1.2,mdurl==0.1.2,molecule==3.4.0,molecule-podman==1.0.1,packaging==23.0,paramiko==2.12.0,pathspec==0.11.1,pluggy==0.13.1,pycparser==2.21,Pygments==2.14.0,PyNaCl==1.5.0,pyrsistent==0.19.3,python-dateutil==2.8.2,python-slugify==8.0.1,PyYAML==5.4.1,requests==2.28.2,resolvelib==0.8.1,rich==13.3.3,ruamel.yaml==0.17.21,ruamel.yaml.clib==0.2.7,selinux==0.3.0,six==1.16.0,subprocess-tee==0.4.1,tenacity==8.2.2,text-unidecode==1.3,urllib3==1.26.15,wcmatch==8.4.1,yamllint==1.26.3
+py39-ansible30 run-test-pre: PYTHONHASHSEED='2496417852'
+py39-ansible30 run-test: commands[0] | molecule test -s centos_7_lite --destroy always
+INFO     centos_7_lite scenario test matrix: destroy, create, converge, idempotence, verify, destroy
+INFO     Performing prerun...
+WARNING  Failed to locate command: [Errno 2] No such file or directory: 'git'
+INFO     Guessed /opt/vector-role as project root directory
+WARNING  Computed fully qualified role name of askarpoff.vector-role does not follow current galaxy requirements.
+Please edit meta/main.yml and assure we can correctly determine full role name:
+
+galaxy_info:
+role_name: my_name  # if absent directory name hosting role is used instead
+namespace: my_galaxy_namespace  # if absent, author is used instead
+
+Namespace: https://galaxy.ansible.com/docs/contributing/namespaces.html#galaxy-namespace-limitations
+Role: https://galaxy.ansible.com/docs/contributing/creating_role.html#role-names
+
+As an alternative, you can add 'role-name' to either skip_list or warn_list.
+
+INFO     Using /root/.cache/ansible-lint/b984a4/roles/askarpoff.vector-role symlink to current repository in order to enable Ansible to find the role using its expected full name.
+INFO     Added ANSIBLE_ROLES_PATH=~/.ansible/roles:/usr/share/ansible/roles:/etc/ansible/roles:/root/.cache/ansible-lint/b984a4/roles
+INFO     Running centos_7_lite > destroy
+INFO     Sanity checks: 'podman'
+Traceback (most recent call last):
+  File "/opt/vector-role/.tox/py39-ansible30/bin/molecule", line 8, in <module>
+    sys.exit(main())
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1130, in __call__
+    return self.main(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1055, in main
+    rv = self.invoke(ctx)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1657, in invoke
+    return _process_result(sub_ctx.command.invoke(sub_ctx))
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 1404, in invoke
+    return ctx.invoke(self.callback, **ctx.params)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/core.py", line 760, in invoke
+    return __callback(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/click/decorators.py", line 26, in new_func
+    return f(get_current_context(), *args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/test.py", line 159, in test
+    base.execute_cmdline_scenarios(scenario_name, args, command_args, ansible_args)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 119, in execute_cmdline_scenarios
+    execute_scenario(scenario)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 161, in execute_scenario
+    execute_subcommand(scenario.config, action)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/base.py", line 150, in execute_subcommand
+    return command(config).execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/logger.py", line 187, in wrapper
+    rt = func(*args, **kwargs)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/command/destroy.py", line 107, in execute
+    self._config.provisioner.destroy()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/provisioner/ansible.py", line 705, in destroy
+    pb.execute()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule/provisioner/ansible_playbook.py", line 106, in execute
+    self._config.driver.sanity_checks()
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/molecule_podman/driver.py", line 212, in sanity_checks
+    if runtime.version < Version("2.10.0") and runtime.config.ansible_pipelining:
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible_compat/runtime.py", line 208, in version
+    self._version = parse_ansible_version(proc.stdout)
+  File "/opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible_compat/config.py", line 39, in parse_ansible_version
+    raise InvalidPrerequisiteError(
+ansible_compat.errors.InvalidPrerequisiteError: Unable to parse ansible cli version: ansible 2.10.17
+  config file = None
+  configured module search path = ['/root/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /opt/vector-role/.tox/py39-ansible30/lib/python3.9/site-packages/ansible
+  executable location = /opt/vector-role/.tox/py39-ansible30/bin/ansible
+  python version = 3.9.2 (default, Jun 13 2022, 19:42:33) [GCC 8.5.0 20210514 (Red Hat 8.5.0-10)]
+
+Keep in mind that only 2.12 or newer are supported.
+ERROR: InvocationError for command /opt/vector-role/.tox/py39-ansible30/bin/molecule test -s centos_7_lite --destroy always (exited with code 1)
+__________________________________________________________________________________________________________________ summary __________________________________________________________________________________________________________________
+  py37-ansible210: commands succeeded
+  py37-ansible30: commands succeeded
+ERROR:   py39-ansible210: commands failed
+ERROR:   py39-ansible30: commands failed
  ```
 </details>
     
